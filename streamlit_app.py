@@ -109,7 +109,7 @@ def extract_heads(filepath):
             numh = a
             head = frame[cont[numh][3]:cont[numh][3]+cont[numh][5],cont[numh][2]:cont[numh][2]+cont[numh][4],:]
             listhead.append(head)
-            st.write('Len of liste heads : ' len(listhead))
+            st.write('Len of liste heads : ', len(listhead))
     return nbperson, listhead
     
     
