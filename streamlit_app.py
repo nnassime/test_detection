@@ -98,6 +98,9 @@ def main():
         st.write('filepath : ',filepath)
     st.write(os.listdir('inference/output/'))
     if st.button('Display Heads!'):
+        filepath = 'inference/output/'+vname
+        filepath = filepath[:-3]+'txt'
+        st.write('filepath : ',filepath)
         extract_heads(filepath, frame0) 
     
     return
