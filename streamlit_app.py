@@ -87,7 +87,7 @@ def main():
         vpath='data/'+vname
         filepath = 'inference/output/'+vpath
         filepath = filepath[:-3]+'txt'
-        st.write(filepath)
+        st.write('filepath : ',filepath)
     if st.button('Display Heads!'):
         extract_heads(filepath) 
     
