@@ -57,5 +57,5 @@ if __name__ == '__main__':
     print("bismillah")
     main()
     
-    st.write('out function ', os.listdir('/app/test/data/'))
+    st.write('out function ', os.listdir('/app/test/data'))
 
