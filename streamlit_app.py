@@ -7,6 +7,18 @@ from PIL import Image
 import io
 import numpy as np
 
+def load_model():
+    wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
+    if not os.path.exists(wpath):
+        st.writ('path didnt exist, so creation ! ')
+        with st.spinner('Downloading model weights for rowdhuman_yolov5m'):
+            #os.system('wget -O /app/test/yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
+            os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O /app/test/yolov5/weights/crowdhuman_yolov5m.pt')
+    else:
+        st.writ('path alredy exist, so no creation ! ')
+        print("Model is here.")
+        
+        
 # Ft saving uploaded video to directory
 def save_uploaded_vid(uploadedfile):
     with open(os.path.join("data", uploadedfile.name),"wb") as f:
@@ -39,12 +51,16 @@ def starter():
     #vpath = "/app/test/data/"+vname
     
     video = load_output_video(vid_open)
+    
+    load_model()
                 
     st.video(video) 
     
     st.write(vname)
     st.write(vpath)
     st.write('in function ', os.listdir('data/'))
+    st.write('in function ', os.listdir('yolov5/weights/'))
+
     return vname
 
 def main():
@@ -58,4 +74,5 @@ if __name__ == '__main__':
     main()
     
     st.write('out function ', os.listdir('data/'))
+    st.write('out function ', os.listdir('yolov5/weights/'))
 
