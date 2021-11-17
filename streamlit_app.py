@@ -64,7 +64,7 @@ def starter():
     st.write('in function ', os.listdir('data/'))
     st.write('in function ', os.listdir('yolov5/weights/'))
     
-    vidcap = cv2.VideoCapture(vid_upload) 
+    vidcap = cv2.VideoCapture( "data/"+vname) 
     #frames = cv.get_frames("data/"+vname)
     success, frame0 = vidcap.read()
     st.write('shape of frame 01 : ', frame0)
