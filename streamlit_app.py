@@ -23,6 +23,28 @@ def load_output_video(vid):
         save_uploaded_vid(vid)
     return video
 
+def starter():
+    st.image('data/LOGOGlob.png', width = 400)
+    st.title("Test of Person detection")
+    st.text("")
+    st.text("")
+    st.success("Welcome! Please upload a video!")
+ 
+    args = { 'HirakAlger' : '112vHirakAlger_09042021_s.mp4' }
+    vid_upload  = st.file_uploader(label= 'Upload Video', type = ['mp4', 'avi'])
+
+    vid_open = args['HirakAlger'] if vid_upload is None else vid_upload
+    vname = args['HirakAlger'] if vid_upload is None else vid_upload.name
+    vpath = "/app/test/"+vname if vid_upload is None else "/app/test/data/"+vname
+
+    video = load_output_video(vid_open)
+                
+    st.video(video) 
+    
+    st.write(vname)
+    st.write(vpath)
+    st.write(st.write(os.listdir('/app/test/data/')))
+    return
 
 def main():
     return
