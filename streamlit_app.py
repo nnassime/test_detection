@@ -67,7 +67,7 @@ def starter():
 
 @st.cache(allow_output_mutation=True)
 def prediction(vname):
-    os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
+    
     vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
@@ -75,13 +75,23 @@ def prediction(vname):
         os.system("ffmpeg -i inference/output/"+vname + " -vcodec libx264 inference/output/output_video.mp4")
         path = 'inference/output/output_video.mp4'
         if os.path.exists(path):
-            video_file = open('inference/output/output_video.mp4', 'rb')
+            video_file = open('vpath='data/'+vnameoutput_video.mp4', 'rb')
             video_bytes = video_file.read()
             st.video(video_bytes)
 
 def main():
+    os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
     vname = starter()
-    prediction(vname)
+        
+    if st.button('Heads detection!'):
+        prediction(vname)
+        st.success("Click again to retry or try a different video by uploading")
+        vpath='data/'+vname
+        filepath = 'inference/output/'+vpath
+        filepath = filepath[:-3]+'txt'
+        st.write(filepath)
+        #nbperson, listhead = extract_heads(filepath)
+        #display_heads(nbperson, listhead)       
     return
       
     
