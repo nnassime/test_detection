@@ -7,6 +7,7 @@ from PIL import Image
 import io
 import numpy as np
 import cv2
+import itertools
 
 
 
@@ -136,7 +137,6 @@ def display_heads(nbperson, listhead):
     return    
     
     
-import itertools
 
 def paginator(label, items, items_per_page=10, on_sidebar=True):
     """Lets the user paginate a set of items.
