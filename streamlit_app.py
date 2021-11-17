@@ -30,7 +30,7 @@ def save_uploaded_vid(uploadedfile):
         f.write(uploadedfile.getbuffer())
     return st.success("Video saved in data dir ")
 
-@st.cache(ttl=3600, max_entries=10)
+#@st.cache(ttl=3600, max_entries=10)
 def load_output_video(vid):
     if isinstance(vid, str): 
         video = open(vid, 'rb')
