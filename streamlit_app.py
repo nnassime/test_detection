@@ -14,6 +14,7 @@ def load_model():
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if not os.path.exists(wpath):
         st.write('path didnt exist, so creation ! ')
+        os.system("python pip uninstall opencv-python")
         os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless opencv-python>=4.1.2 PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
         with st.spinner('Downloading model weights for crowdhuman_yolov5m'):
             #os.system('wget -O yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
@@ -75,6 +76,7 @@ def prediction(vname):
     vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
+        
         os.system("python track.py --yolo_weights yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vpath)
         os.system("ffmpeg -i inference/output/"+vname + " -vcodec libx264 -y inference/output/output_video.mp4")
         path = 'inference/output/output_video.mp4'
