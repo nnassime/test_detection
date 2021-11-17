@@ -81,7 +81,7 @@ def prediction(vname):
 
 def main():
     vname = starter()
-    prediction(vname)
+    #prediction(vname)
     return
       
     
