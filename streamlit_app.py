@@ -7,14 +7,17 @@ from PIL import Image
 import io
 import numpy as np
 
+
+
 def load_model():
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if not os.path.exists(wpath):
         st.write('path didnt exist, so creation ! ')
-        with st.spinner('Downloading model weights for rowdhuman_yolov5m'):
+        os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
+        with st.spinner('Downloading model weights for crowdhuman_yolov5m'):
             #os.system('wget -O yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
             os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O yolov5/weights/crowdhuman_yolov5m.pt')
-            st.write('in function load_model', os.listdir('yolov5/weights/'))
+            #st.write('in function load_model', os.listdir('yolov5/weights/'))
 
     else:
         st.write('path alredy exist, so no creation ! ')
@@ -27,7 +30,7 @@ def save_uploaded_vid(uploadedfile):
         f.write(uploadedfile.getbuffer())
     return st.success("Video saved in data dir ")
 
-#@st.cache(ttl=3600, max_entries=10)
+@st.cache(ttl=3600, max_entries=10)
 def load_output_video(vid):
     if isinstance(vid, str): 
         video = open(vid, 'rb')
@@ -76,7 +79,6 @@ def prediction(vname):
             st.video(video_bytes)
 
 def main():
-    os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
     vname = starter()
         
     if st.button('Heads detection!'):
