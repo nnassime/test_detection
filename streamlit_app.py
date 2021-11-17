@@ -44,7 +44,7 @@ def starter():
     
     st.write(vname)
     st.write(vpath)
-    st.write('in function ', os.listdir('/app/test/'))
+    #st.write('in function ', os.listdir('/app/test/data/'))
     return vname
 
 def main():
