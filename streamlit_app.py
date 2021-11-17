@@ -88,7 +88,7 @@ def main():
 if __name__ == '__main__':
     st.write("bismillah")
     print("bismillah")
-    main()
+    main() 
     
     st.write('out function ', os.listdir('data/'))
     st.write('out function ', os.listdir('yolov5/weights/'))
