@@ -13,7 +13,7 @@ def load_model():
         st.write('path didnt exist, so creation ! ')
         with st.spinner('Downloading model weights for rowdhuman_yolov5m'):
             #os.system('wget -O /app/test/yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
-            os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O /app/test/yolov5/weights/crowdhuman_yolov5m.pt')
+            os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O yolov5/weights/crowdhuman_yolov5m.pt')
             st.write('in function load_model', os.listdir('yolov5/weights/'))
 
     else:
