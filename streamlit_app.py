@@ -10,12 +10,12 @@ import numpy as np
 def load_model():
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if not os.path.exists(wpath):
-        st.writ('path didnt exist, so creation ! ')
+        st.write('path didnt exist, so creation ! ')
         with st.spinner('Downloading model weights for rowdhuman_yolov5m'):
             #os.system('wget -O /app/test/yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
             os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O /app/test/yolov5/weights/crowdhuman_yolov5m.pt')
     else:
-        st.writ('path alredy exist, so no creation ! ')
+        st.write('path alredy exist, so no creation ! ')
         print("Model is here.")
         
         
