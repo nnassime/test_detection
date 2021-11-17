@@ -14,7 +14,7 @@ def load_model():
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if not os.path.exists(wpath):
         st.write('path didnt exist, so creation ! ')
-        os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
+        os.system("python -m pip install numpy torch pandas Pillow opencv-python>=4.1.2 opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
         with st.spinner('Downloading model weights for crowdhuman_yolov5m'):
             #os.system('wget -O yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
             os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O yolov5/weights/crowdhuman_yolov5m.pt')
