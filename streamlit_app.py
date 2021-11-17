@@ -88,7 +88,7 @@ def main():
         filepath = 'inference/output/'+vname
         filepath = filepath[:-3]+'txt'
         st.write('filepath : ',filepath)
-    st.write(os.listedir('inference/output/'))
+    st.write(os.listdir('inference/output/'))
     if st.button('Display Heads!'):
         extract_heads(filepath) 
     
@@ -111,7 +111,7 @@ def extract_heads(filepath):
             numh = a
             head = frame[cont[numh][3]:cont[numh][3]+cont[numh][5],cont[numh][2]:cont[numh][2]+cont[numh][4],:]
             listhead.append(head)
-            st.write('Len of liste heads : ', len(listhead))
+        st.write('Len of liste heads : ', len(listhead))
     return nbperson, listhead
     
     
