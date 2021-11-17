@@ -44,7 +44,7 @@ def starter():
     
     st.write(vname)
     st.write(vpath)
-    st.write('in function ',st.write(os.listdir('/app/test/data/')))
+    st.write('in function ', os.listdir('/app/test/data/'))
     return vname
 
 def main():
@@ -57,5 +57,5 @@ if __name__ == '__main__':
     print("bismillah")
     main()
     
-    st.write('out function ',st.write(os.listdir('/app/test/data/')))
+    st.write('out function ', os.listdir('/app/test/data/'))
 
