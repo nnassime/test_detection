@@ -30,7 +30,7 @@ def starter():
     st.text("")
     st.success("Welcome! Please upload a video!")
  
-    args = { 'HirakAlger' : 'data/112vHirakAlger_09042021_s.mp4' }
+    args = { 'HirakAlger' : '112vHirakAlger_09042021_s.mp4' }
     vid_upload  = st.file_uploader(label= 'Upload Video', type = ['mp4', 'avi'])
 
     vid_open = args['HirakAlger'] if vid_upload is None else vid_upload
