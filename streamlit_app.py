@@ -80,7 +80,7 @@ def prediction(vname):
 
 def main():
     vname = starter()
-    filepath ='.'    
+    filepath = 'inference/output/data/ParisManif.txt'  
     if st.button('Heads detection!'):
         prediction(vname)
         st.success("Click again to retry or try a different video by uploading")
