@@ -68,10 +68,10 @@ def starter():
 @st.cache(allow_output_mutation=True)
 def prediction(vname):
     os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
-    vpath='data/'+vname
+    #vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
-        os.system("python track.py --yolo_weights yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vpath)
+        os.system("python track.py --yolo_weights yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vname)
         os.system("ffmpeg -i inference/output/"+vname + " -vcodec libx264 inference/output/output_video.mp4")
         path = 'inference/output/output_video.mp4'
         if os.path.exists(path):
