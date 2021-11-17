@@ -38,15 +38,14 @@ def starter():
     #vpath = "/app/test/"+vname if vid_upload is None else "/app/test/data/"+vname
     vpath = "/app/test/data/"+vname
     
-
     video = load_output_video(vid_open)
                 
     st.video(video) 
     
     st.write(vname)
     st.write(vpath)
-    st.write(st.write(os.listdir('/app/test/data/')))
-    return
+    st.write('in function ',st.write(os.listdir('/app/test/data/')))
+    return vname
 
 def main():
     starter()
@@ -57,3 +56,6 @@ if __name__ == '__main__':
     st.write("bismillah")
     print("bismillah")
     main()
+    
+    st.write('out function ',st.write(os.listdir('/app/test/data/')))
+
