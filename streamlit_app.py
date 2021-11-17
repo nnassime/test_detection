@@ -47,6 +47,7 @@ def starter():
     return
 
 def main():
+    starter()
     return
       
     
