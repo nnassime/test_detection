@@ -49,17 +49,13 @@ def starter():
 
     vid_open = "data/"+args['HirakAlger'] if vid_upload is None else vid_upload
     vname = args['HirakAlger'] if vid_upload is None else vid_upload.name
-    #vpath = "data/"+vname
-    #vpath = "/app/test/data/"+vname
-    
+  
     video = load_output_video(vid_open)
-    
     load_model()
                 
     st.video(video) 
     
     st.write('in function : vname  = ', vname)
-    
     st.write('in function ', os.listdir('data/'))
     st.write('in function ', os.listdir('yolov5/weights/'))
 
