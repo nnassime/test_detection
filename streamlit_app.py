@@ -6,7 +6,7 @@ import wget
 from PIL import Image
 import io
 import numpy as np
-import cv
+import cv2
 
 
 
@@ -15,7 +15,7 @@ def load_model():
     if not os.path.exists(wpath):
         st.write('path didnt exist, so creation ! ')
         #os.system("python pip uninstall opencv-python")
-        os.system("python -m pip install numpy torch pandas Pillow cvlib opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
+        os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
         with st.spinner('Downloading model weights for crowdhuman_yolov5m'):
             #os.system('wget -O yolov5/weights/crowdhuman_yolov5m.pt https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt')
             os.system('wget -nc https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch/releases/download/v.2.0/crowdhuman_yolov5m.pt -O yolov5/weights/crowdhuman_yolov5m.pt')
@@ -64,9 +64,9 @@ def starter():
     st.write('in function ', os.listdir('data/'))
     st.write('in function ', os.listdir('yolov5/weights/'))
     
-    #vidcap = cv2.VideoCapture(vid_upload) 
-    frames = cv.get_frames("data/"+vname)
-    frame0 = frames[1]
+    vidcap = cv2.VideoCapture(vid_upload) 
+    #frames = cv.get_frames("data/"+vname)
+    frame0 = vidcap.read()
     st.write('shape of frame 01 : ', frame0.shape)
 
     return vname, frame0
