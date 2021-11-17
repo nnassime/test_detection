@@ -80,14 +80,15 @@ def prediction(vname):
 
 def main():
     vname = starter()
-    filepath = 'inference/output/data/ParisManif.txt'  
+    filepath = 'inference/output/ParisManif.txt'  
     if st.button('Heads detection!'):
         prediction(vname)
         st.success("Click again to retry or try a different video by uploading")
-        vpath='data/'+vname
-        filepath = 'inference/output/'+vpath
+       
+        filepath = 'inference/output/'+vname
         filepath = filepath[:-3]+'txt'
         st.write('filepath : ',filepath)
+    st.write(os.listedir('inference/output/'))
     if st.button('Display Heads!'):
         extract_heads(filepath) 
     
