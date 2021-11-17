@@ -106,6 +106,7 @@ def extract_heads(filepath, frame0):
     nbperson = 0
     listhead = []
     if os.path.exists(filepath):
+        st.write("filepath : ", filepath)
         array_from_file = np.loadtxt(filepath, dtype=int)
         st.write('np of array load : ', array_from_file.shape)
         array_from_file = np.delete(array_from_file,np.s_[7:10], axis=1)
