@@ -8,8 +8,8 @@
 #numpy
 
 
-opencv-python>=4.5.3.56
-#opencv-contrib-python
+#opencv-python>=4.5.3.56
+opencv-contrib-python
 #opencv-python-headless
 #Pillow
 #PyYAML>=5.3.1
