@@ -72,10 +72,10 @@ def prediction(vname):
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
         os.system("python track.py --yolo_weights yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vpath)
-        os.system("ffmpeg -i inference/output/"+vname + " -vcodec libx264 inference/output/output_video.mp4")
+        os.system("ffmpeg -i -y inference/output/"+vname + " -vcodec libx264 inference/output/output_video.mp4")
         path = 'inference/output/output_video.mp4'
         if os.path.exists(path):
-            video_file = open('vpath='data/'+vnameoutput_video.mp4', 'rb')
+            video_file = open(path, 'rb')
             video_bytes = video_file.read()
             st.video(video_bytes)
 
@@ -90,8 +90,16 @@ def main():
         filepath = 'inference/output/'+vpath
         filepath = filepath[:-3]+'txt'
         st.write(filepath)
-        #nbperson, listhead = extract_heads(filepath)
-        #display_heads(nbperson, listhead)       
+        if st.button('Display Heads!'):
+            prediction(vname)
+            st.success("Click again to retry or try a different video by uploading")
+            vpath='data/'+vname
+            filepath = 'inference/output/'+vpath
+            filepath = filepath[:-3]+'txt'
+            st.write(filepath)
+            #nbperson, listhead = extract_heads(filepath)
+            #display_heads(nbperson, listhead)       
+    
     return
       
     
