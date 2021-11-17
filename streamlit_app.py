@@ -6,7 +6,7 @@ import wget
 from PIL import Image
 import io
 import numpy as np
-import cv2.cv as cv
+import cv
 
 
 
