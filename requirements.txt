@@ -8,7 +8,7 @@
 #numpy
 
 
-opencv-python>=4.5.3.56
+#opencv-python>=4.5.3.56
 #opencv-contrib-python
 #opencv-python-headless
 #Pillow
