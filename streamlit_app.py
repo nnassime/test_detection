@@ -66,7 +66,7 @@ def starter():
     
     vidcap = cv2.VideoCapture(vid_upload) 
     #frames = cv.get_frames("data/"+vname)
-    frame0 = vidcap.read()
+    success, frame0 = vidcap.read()
     st.write('shape of frame 01 : ', frame0.shape)
 
     return vname, frame0
