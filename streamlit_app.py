@@ -54,7 +54,7 @@ def starter():
     vname = args['HirakAlger'] if vid_upload is None else vid_upload.name
   
     video = load_output_video(vid_open)
-    load_model()
+    
                 
     st.video(video) 
     
@@ -102,6 +102,7 @@ def main():
       
     
 if __name__ == '__main__':
+    load_model()
     st.write("bismillah")
     print("bismillah")
     main() 
