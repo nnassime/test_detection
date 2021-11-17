@@ -67,7 +67,7 @@ def starter():
 
 
 def prediction(vname):
-    os.system("python -m pip install numpy torch pandas Pillow")
+    os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless")
     vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
