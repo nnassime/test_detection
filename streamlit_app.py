@@ -35,7 +35,8 @@ def starter():
 
     vid_open = args['HirakAlger'] if vid_upload is None else vid_upload
     vname = args['HirakAlger'] if vid_upload is None else vid_upload.name
-    vpath = "/app/test/"+vname if vid_upload is None else "/app/test/data/"+vname
+    #vpath = "/app/test/"+vname if vid_upload is None else "/app/test/data/"+vname
+    vpath = "/app/test/data/"+vname
 
     video = load_output_video(vid_open)
                 
