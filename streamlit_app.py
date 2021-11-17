@@ -61,8 +61,10 @@ def starter():
     st.write('in function : vname  = ', vname)
     st.write('in function ', os.listdir('data/'))
     st.write('in function ', os.listdir('yolov5/weights/'))
-
-    return vname
+    
+    vidcap = cv2.VideoCapture(vid_upload) 
+    frame0 = vidcap.read()
+    return vname, frame0
 
 @st.cache(allow_output_mutation=True)
 def prediction(vname):
@@ -79,8 +81,8 @@ def prediction(vname):
             st.video(video_bytes)
 
 def main():
-    vname = starter()
-    filepath = 'inference/output/ParisManif.txt'  
+    vname, frame0 = starter()
+    filepath = '.'  # Initialisation 
     if st.button('Heads detection!'):
         prediction(vname)
         st.success("Click again to retry or try a different video by uploading")
@@ -90,11 +92,11 @@ def main():
         st.write('filepath : ',filepath)
     st.write(os.listdir('inference/output/'))
     if st.button('Display Heads!'):
-        extract_heads(filepath) 
+        extract_heads(filepath, frame0) 
     
     return
       
-def extract_heads(filepath):
+def extract_heads(filepath, frame0):
     nbperson = 0
     listhead = []
     if os.path.exists(filepath):
@@ -106,14 +108,21 @@ def extract_heads(filepath):
         rows = 5
         cols = 10
         nbheads = rows*cols
-        
+        frame = frame0
+        cont = array_from_file
         for a in range(nbheads):
             numh = a
             head = frame[cont[numh][3]:cont[numh][3]+cont[numh][5],cont[numh][2]:cont[numh][2]+cont[numh][4],:]
             listhead.append(head)
         st.write('Len of liste heads : ', len(listhead))
     return nbperson, listhead
-    
+
+def display_heads(nbperson, listhead):
+    os.system("streamlit run https://gist.githubusercontent.com/treuille/da70b4888f8b706fca7afc765751cd85/raw/0727bb67defd93774dae65a2bc6917f72e267460/image_paginator.py")
+    image_iterator = paginator("Select a sunset page", listhead)
+    indices_on_page, images_on_page = map(list, zip(*image_iterator))
+    st.image(images_on_page, width=100, caption=indices_on_page)
+    return    
     
 if __name__ == '__main__':
     load_model()
