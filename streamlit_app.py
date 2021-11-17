@@ -6,7 +6,7 @@ import wget
 from PIL import Image
 import io
 import numpy as np
-import cv2
+#import cv2
 
 
 
@@ -64,7 +64,9 @@ def starter():
     st.write('in function ', os.listdir('yolov5/weights/'))
     
     vidcap = cv2.VideoCapture(vid_upload) 
-    frame0 = vidcap.read()
+    
+    video_tensor = torchvision.io.read_video(video)
+    frame0 = video_tensor[0]
     return vname, frame0
 
 @st.cache(allow_output_mutation=True)
