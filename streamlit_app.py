@@ -67,7 +67,7 @@ def starter():
 
 
 def prediction(vname):
-    os.system("python -m pip install numpy torch pandas")
+    os.system("python -m pip install numpy torch pandas PIL")
     vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
