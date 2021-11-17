@@ -101,7 +101,8 @@ def main():
         filepath = 'inference/output/'+vname
         filepath = filepath[:-3]+'txt'
         st.write('filepath : ',filepath)
-        extract_heads(filepath, frame0) 
+        nbperson, listhead = extract_heads(filepath, frame0) 
+        display_heads(nbperson, listhead)
     
     return
       
