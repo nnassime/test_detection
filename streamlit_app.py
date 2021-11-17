@@ -71,7 +71,7 @@ def prediction(vname):
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
         os.system("python track.py --yolo_weights yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vpath)
-        os.system("ffmpeg -i -y inference/output/"+vname + " -vcodec libx264 inference/output/output_video.mp4")
+        os.system("ffmpeg -i inference/output/"+vname + " -vcodec libx264 -y inference/output/output_video.mp4")
         path = 'inference/output/output_video.mp4'
         if os.path.exists(path):
             video_file = open(path, 'rb')
