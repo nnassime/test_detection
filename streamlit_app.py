@@ -44,12 +44,12 @@ def starter():
     st.text("")
     st.success("Welcome! Please upload a video!")
  
-    args = { 'HirakAlger' : 'data/112vHirakAlger_09042021_s.mp4' }
+    args = { 'HirakAlger' : '112vHirakAlger_09042021_s.mp4' }
     vid_upload  = st.file_uploader(label= 'Upload Video', type = ['mp4', 'avi'])
 
-    vid_open = args['HirakAlger'] if vid_upload is None else vid_upload
+    vid_open = "data/"+args['HirakAlger'] if vid_upload is None else vid_upload
     vname = args['HirakAlger'] if vid_upload is None else vid_upload.name
-    vpath = "/app/test/"+vname if vid_upload is None else "/app/test/data/"+vname
+    #vpath = "data/"+vname
     #vpath = "/app/test/data/"+vname
     
     video = load_output_video(vid_open)
@@ -58,8 +58,8 @@ def starter():
                 
     st.video(video) 
     
-    st.write(vname)
-    st.write(vpath)
+    st.write('in function : vname  = ', vname)
+    
     st.write('in function ', os.listdir('data/'))
     st.write('in function ', os.listdir('yolov5/weights/'))
 
