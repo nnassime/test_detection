@@ -67,7 +67,7 @@ def starter():
 
 
 def prediction(vname):
-    os.system("python pip install -r numpy")
+    os.system("python -m pip install numpy")
     vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
