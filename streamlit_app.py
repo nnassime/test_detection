@@ -63,7 +63,7 @@ def starter():
     st.write('in function ', os.listdir('data/'))
     st.write('in function ', os.listdir('yolov5/weights/'))
     
-    vidcap = cv2.VideoCapture(vid_upload) 
+    #vidcap = cv2.VideoCapture(vid_upload) 
     
     video_tensor = torchvision.io.read_video(video)
     frame0 = video_tensor[0]
