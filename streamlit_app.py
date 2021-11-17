@@ -30,4 +30,5 @@ def main():
     
 if __name__ == '__main__':
     st.write("bismillah")
+    print("bismillah")
     main()
