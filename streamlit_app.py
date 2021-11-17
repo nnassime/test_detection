@@ -98,6 +98,7 @@ def extract_heads(filepath):
     listhead = []
     if os.path.exists(filepath):
         array_from_file = np.loadtxt(filepath, dtype=int)
+        st.write('np of array load : ', array_from_file.shape)
         array_from_file = np.delete(array_from_file,np.s_[7:10], axis=1)
         nbperson = np.unique(array[:,1]).shape[0]
 
