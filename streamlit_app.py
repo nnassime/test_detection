@@ -89,17 +89,29 @@ def main():
         filepath = filepath[:-3]+'txt'
         st.write(filepath)
         if st.button('Display Heads!'):
-            prediction(vname)
-            st.success("Click again to retry or try a different video by uploading")
-            vpath='data/'+vname
-            filepath = 'inference/output/'+vpath
-            filepath = filepath[:-3]+'txt'
-            st.write(filepath)
-            #nbperson, listhead = extract_heads(filepath)
-            #display_heads(nbperson, listhead)       
+            extract_heads(filepath) 
     
     return
       
+def extract_heads(filepath):
+    nbperson = 0
+    listhead = []
+    if os.path.exists(filepath):
+        array_from_file = np.loadtxt(filepath, dtype=int)
+        array_from_file = np.delete(array_from_file,np.s_[7:10], axis=1)
+        nbperson = np.unique(array[:,1]).shape[0]
+
+        rows = 5
+        cols = 10
+        nbheads = rows*cols
+        
+        for a in range(nbheads):
+            numh = a
+            head = frame[cont[numh][3]:cont[numh][3]+cont[numh][5],cont[numh][2]:cont[numh][2]+cont[numh][4],:]
+            listhead.append(head)
+            st.write('Len of liste heads : ' len(listhead))
+    return nbperson, listhead
+    
     
 if __name__ == '__main__':
     load_model()
