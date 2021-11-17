@@ -67,7 +67,7 @@ def starter():
 
 @st.cache(allow_output_mutation=True)
 def prediction(vname):
-    os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0")
+    os.system("python -m pip install numpy torch pandas Pillow opencv-python-headless PyYAML>=5.3.1 torchvision>=0.8.1 matplotlib seaborn>=0.11.0 easydict")
     vpath='data/'+vname
     wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
