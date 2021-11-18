@@ -99,11 +99,11 @@ def main():
         filepath = 'inference/output/'+vname
         filepath = filepath[:-3]+'txt'
         st.write('filepath : ',filepath)
-    st.write(os.listdir('inference/output/'))
-    if st.button('Display Heads!'):
-        filepath = 'inference/output/'+vname
-        filepath = filepath[:-3]+'txt'
-        st.write('filepath : ',filepath)
+        #st.write(os.listdir('inference/output/'))
+        #if st.button('Display Heads!'):
+        #filepath = 'inference/output/'+vname
+        #filepath = filepath[:-3]+'txt'
+        #st.write('filepath : ',filepath)
         nbperson, listhead = extract_heads(filepath, frame0) 
         display_heads(nbperson, listhead)
     
