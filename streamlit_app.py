@@ -68,6 +68,8 @@ def starter():
     vidcap = cv2.VideoCapture( "data/"+vname) 
     #frames = cv.get_frames("data/"+vname)
     success, frame0 = vidcap.read()
+    frame0 = cv2.cvtColor(frame0, cv2.COLOR_BGR2RGB)
+
     st.write('shape of frame 01 : ', frame0.shape)
 
     return vname, frame0
@@ -133,7 +135,7 @@ def display_heads(nbperson, listhead):
     #os.system("streamlit run https://gist.githubusercontent.com/treuille/da70b4888f8b706fca7afc765751cd85/raw/0727bb67defd93774dae65a2bc6917f72e267460/image_paginator.py")
     image_iterator = paginator("Select a sunset page", listhead)
     indices_on_page, images_on_page = map(list, zip(*image_iterator))
-    st.image(images_on_page, width=100, caption=indices_on_page)
+    st.image(images_on_page, width=150, caption=indices_on_page)
     return    
     
     
