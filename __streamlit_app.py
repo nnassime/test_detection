@@ -62,7 +62,7 @@ def starter():
     st.video(video) 
     
     st.write('in function : vname  = ', vname)
-    st.write('in function ', os.listdir('data/'))
+    st.write('in function ', os.listdir('test_detection/data/'))
     st.write('in function ', os.listdir('test_detection/yolov5/weights/'))
     
     vidcap = cv2.VideoCapture( "test_detection/data/"+vname) 
