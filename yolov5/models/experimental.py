@@ -7,12 +7,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-import sys
 
-sys.path.insert(0, './test_detection/yolov5')
-sys.path.insert(0, './test_detection/yolov5/models')
-
-  
 
 from models.common import Conv
 from utils.downloads import attempt_download
