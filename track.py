@@ -216,7 +216,11 @@ if __name__ == '__main__':
     parser.add_argument('--agnostic-nms', action='store_true', help='class-agnostic NMS')
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--evaluate', action='store_true', help='augmented inference')
+    
+    #Moddified : added test_detection/ sub folder !!!
     parser.add_argument("--config_deepsort", type=str, default="test_detection/deep_sort_pytorch/configs/deep_sort.yaml")
+    #Moddified : added test_detection/ sub folder !!!
+    
     parser.add_argument("--half", action="store_true", help="use FP16 half-precision inference")
     args = parser.parse_args()
     args.img_size = check_img_size(args.img_size)
