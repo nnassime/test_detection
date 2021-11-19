@@ -8,7 +8,6 @@ os.environ["NUMEXPR_NUM_THREADS"] = "1"
 
 import sys
 sys.path.insert(0, './yolov5')
-sys.path.insert(0, './deep_sort_pytorch')
 
 from yolov5.models.experimental import attempt_load
 from yolov5.utils.downloads import attempt_download
