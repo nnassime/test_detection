@@ -4,7 +4,7 @@ from easydict import EasyDict as edict
 
 import sys
 sys.path.insert(0, 'app/test_detection/deep_sort_pytorch/configs')
-sys.path.insert(0, 'test_detection/deep_sort_pytorch/configs')
+sys.path.insert(0, './test_detection/deep_sort_pytorch/configs')
 sys.path.insert(0, 'test_detection/deep_sort_pytorch')
 
 class YamlParser(edict):
