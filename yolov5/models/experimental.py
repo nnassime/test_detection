@@ -9,8 +9,8 @@ import torch.nn as nn
 
 import sys
 
-sys.path.insert(0, 'app/test_detection/yolov5')
-sys.path.insert(0, 'app/test_detection/yolov5/models')
+sys.path.insert(0, './test_detection/yolov5')
+sys.path.insert(0, './test_detection/yolov5/models')
 
   
 
