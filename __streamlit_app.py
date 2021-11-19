@@ -12,7 +12,7 @@ import itertools
 
 
 def load_model():
-    wpath = 'yolov5/weights/crowdhuman_yolov5m.pt'
+    wpath = 'test_detection/yolov5/weights/crowdhuman_yolov5m.pt'
     if not os.path.exists(wpath):
         st.write('path didnt exist, so creation ! ')
         #os.system("python pip uninstall opencv-python")
