@@ -2,10 +2,6 @@ import os
 import yaml
 from easydict import EasyDict as edict
 
-import sys
-sys.path.insert(0, 'app/test_detection/deep_sort_pytorch/configs')
-sys.path.insert(0, './test_detection/deep_sort_pytorch/configs')
-sys.path.insert(0, 'test_detection/deep_sort_pytorch')
 
 class YamlParser(edict):
     """
@@ -39,7 +35,7 @@ def get_config(config_file=None):
 
 if __name__ == "__main__":
     cfg = YamlParser(config_file="../configs/yolov3.yaml")
-    cfg.merge_from_file("../deep_sort_pytorch/configs/deep_sort.yaml")
+    cfg.merge_from_file("../configs/deep_sort.yaml")
 
     import ipdb
     ipdb.set_trace()
