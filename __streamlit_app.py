@@ -81,7 +81,7 @@ def prediction(vname):
     wpath = 'test_detection/yolov5/weights/crowdhuman_yolov5m.pt'
     if os.path.exists(wpath):
         
-        os.system("python track.py --yolo_weights test_detection/yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vpath)
+        os.system("python test_detection/track.py --yolo_weights test_detection/yolov5/weights/crowdhuman_yolov5m.pt --img 352 --save-vid --save-txt --classes 1 --conf-thres 0.4 --source " + vpath)
         os.system("ffmpeg -i test_detection/inference/output/"+vname + " -vcodec libx264 -y test_detection/inference/output/output_video.mp4")
         path = 'test_detection/inference/output/output_video.mp4'
         if os.path.exists(path):
