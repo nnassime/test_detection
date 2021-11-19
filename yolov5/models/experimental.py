@@ -7,6 +7,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+import sys
+
+sys.path.insert(0, 'home/user/app/test_detection/yolov5/models')
+sys.path.insert(0, 'test_detection/yolov5/models')
 
 
 from models.common import Conv
