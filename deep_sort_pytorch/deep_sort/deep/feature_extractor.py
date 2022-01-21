@@ -49,6 +49,6 @@ class Extractor(object):
 
 if __name__ == '__main__':
     img = cv2.imread("demo.jpg")[:, :, (2, 1, 0)]
-    extr = Extractor("checkpoint/ckpt.t7")
+    extr = Extractor("test_detection/deep_sort_pytorch/deep_sort/deep/checkpoint/ckpt.t7")
     feature = extr(img)
     print(feature.shape)
